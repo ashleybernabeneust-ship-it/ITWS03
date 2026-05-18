@@ -1,0 +1,17 @@
+{
+    "name": "ashleybernabeneust-ship-it/ws03-php",
+    "description": "Job Listing PHP Project",
+    "authors": [
+        {
+            "name": "Ashley Bernabe",
+            "email": "ashleybernabe.neust@email.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "Framework\\Middleware\\": "Framework/Middleware/",
+            "App\\": "app/"
+        }
+    }
+}

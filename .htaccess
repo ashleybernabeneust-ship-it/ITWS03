@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# If the request is not already for the Public folder and it is not an existing file/directory,
+# rewrite it into Public so the application can be served from either /WS03 or /WS03/Public.
+RewriteCond %{REQUEST_URI} !/Public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ Public/$1 [L]

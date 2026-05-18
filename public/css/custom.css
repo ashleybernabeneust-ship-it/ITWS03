@@ -1,0 +1,555 @@
+/* ============================================================
+   WORKOPIA — CUSTOM STYLESHEET
+   Pangalan ng Student: ______________________________
+   Theme Name:          ______________________________
+   ============================================================ */
+
+/* --- Google Fonts Import ---
+   Pumunta sa https://fonts.google.com, pumili ng font,
+   i-copy ang @import link, i-paste dito.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ----------------------------------------------------------------
+   SECTION 1: MGA KULAY (Colors)
+   ----------------------------------------------------------------
+   Palitan ang bawat hex code ng kulay na gusto mo.
+   Tip: https://coolors.co — para pumili ng color palette
+        https://htmlcolorcodes.com — para makita ang hex codes
+   ---------------------------------------------------------------- */
+
+:root {
+  --color-header:       #213da0;   /* Header at navigation bar */
+  --color-accent:       #43a047;   /* "Post a Job" button at mga highlight */
+  --color-accent-hover: #D97706;   /* Hover state ng accent */
+  --color-accent:       #F59E0B;   /* "Post a Job" accent (auto-picked complementary amber) */
+  --color-page-bg:      #f4f7f4;   /* Background ng buong page */
+  --color-card-bg:      #ffffff;   /* Background ng mga card/box */
+  --color-heading:      #0f2748;   /* Kulay ng mga title at heading */
+  --color-body-text:    #2d3d2d;   /* Regular na body text */
+  --color-link:         #1A2A4A;   /* Mga clickable na links */
+  --color-link-hover:   #425ad6;   /* Hover state ng links (lighter, matches header) */
+  --color-tag-bg:       #FFF7ED;   /* Background ng mga tag/badge (soft amber) */
+  --color-tag-text:     #92400E;   /* Text ng mga tag/badge (dark amber) */
+  --color-footer:       #143044;   /* Footer background (darker)	*/
+  --color-footer-text:  #c9d9ee;   /* Footer text (muted light) */
+  --color-border:       #E6EEF9;   /* Border ng mga element (subtle cool) */
+  --showcase-overlay:   rgba(0, 0, 0, 0.35); /* Hero banner overlay */
+}
+
+
+/* ----------------------------------------------------------------
+   SECTION 2: MGA FONT (Typography)
+   ---------------------------------------------------------------- */
+
+:root {
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Poppins', sans-serif;
+}
+
+
+/* ----------------------------------------------------------------
+   SECTION 3: HUGIS AT ESTILO (Shape & Style)
+   ---------------------------------------------------------------- */
+
+:root {
+  --border-radius:      10px;
+  --card-shadow:        0 4px 16px rgba(33, 61, 160, 0.08);
+  --card-shadow-hover:  0 8px 28px rgba(33, 61, 160, 0.14);
+  --transition:         0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ================================================================
+   BASE
+   ================================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-page-bg) !important;
+  color: var(--color-body-text) !important;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-heading) !important;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--color-body-text) !important;
+}
+
+/* ================================================================
+   LINKS
+   ================================================================ */
+
+a {
+  color: var(--color-link) !important;
+  transition: color var(--transition), opacity var(--transition);
+}
+
+a:hover {
+  color: var(--color-link-hover) !important;
+}
+
+/* Nav links stay white since they're on the dark header */
+header a,
+header nav a {
+  color: #ffffff !important;
+}
+
+header nav a:hover {
+  color: #c8e6c9 !important;
+}
+
+/* ================================================================
+   HEADER  — overrides bg-blue-900
+   ================================================================ */
+
+header,
+header.bg-blue-900 {
+  background-color: var(--color-header) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ================================================================
+   TOP BANNER — overrides bg-blue-900 on section
+   ================================================================ */
+
+section.bg-blue-900 {
+  background-color: var(--color-header) !important;
+}
+
+section.bg-blue-900 h2,
+section.bg-blue-900 p {
+  color: #ffffff !important;
+}
+
+/* ================================================================
+   BOTTOM BANNER — overrides bg-blue-800
+   ================================================================ */
+
+.bg-blue-800 {
+  background-color: var(--color-header) !important;
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--border-radius) !important;
+}
+
+.bg-blue-800 h2,
+.bg-blue-800 p {
+  color: #ffffff !important;
+}
+
+/* ================================================================
+   ACCENT BUTTON — overrides bg-yellow-500 / bg-blue-500
+   ================================================================ */
+
+.bg-yellow-500,
+.bg-blue-500,
+.bg-green-500 {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition) !important;
+}
+
+.bg-yellow-500:hover,
+.hover\:bg-yellow-600:hover,
+.bg-blue-500:hover,
+.hover\:bg-blue-600:hover,
+.bg-green-500:hover,
+.hover\:bg-green-600:hover {
+  background-color: var(--color-accent-hover) !important;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* Cancel / Delete buttons keep their red color */
+.bg-red-500 {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+.hover\:bg-red-600:hover,
+.bg-red-500:hover {
+  background-color: #dc2626 !important;
+}
+
+/* ================================================================
+   PAGE BACKGROUND — overrides bg-gray-100
+   ================================================================ */
+
+.bg-gray-100,
+body.bg-gray-100 {
+  background-color: var(--color-page-bg) !important;
+}
+
+/* But bg-gray-100 INSIDE cards (job detail list) stays slightly grey */
+ul.bg-gray-100 {
+  background-color: #f0f5f0 !important;
+  border-radius: var(--border-radius) !important;
+}
+
+/* ================================================================
+   CARDS — overrides bg-white
+   ================================================================ */
+
+.bg-white {
+  background-color: var(--color-card-bg) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow) !important;
+  border: 1px solid rgba(46, 125, 50, 0.12);
+  transition: box-shadow var(--transition),
+              transform var(--transition),
+              border-color var(--transition) !important;
+}
+
+.bg-white:hover {
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-3px);
+  border-color: rgba(67, 160, 71, 0.35);
+}
+
+/* ================================================================
+   TAGS / BADGES — overrides bg-indigo-100
+   ================================================================ */
+
+.bg-indigo-100 {
+  background-color: var(--color-tag-bg) !important;
+  border: 1px solid rgba(46, 125, 50, 0.25);
+  transition: background-color var(--transition) !important;
+}
+
+.bg-indigo-100:hover {
+  background-color: #a5d6a7 !important;
+}
+
+.text-indigo-700,
+.text-indigo-800 {
+  color: var(--color-tag-text) !important;
+  font-weight: 600;
+}
+
+/* Location badge (Local / Remote) overrides bg-blue-500 in spans */
+span.bg-blue-500 {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  transform: none !important;    /* don't lift tiny inline badges */
+  box-shadow: none !important;
+}
+
+/* ================================================================
+   TEXT COLOUR OVERRIDES
+   ================================================================ */
+
+.text-blue-700,
+.text-blue-500,
+.text-blue-900 {
+  color: var(--color-link) !important;
+}
+
+.text-gray-700,
+.text-gray-500,
+.text-gray-200 {
+  color: var(--color-body-text) !important;
+  opacity: 0.85;
+}
+
+/* ================================================================
+   BORDER RADIUS UTILITIES
+   ================================================================ */
+
+.rounded,
+.rounded-lg {
+  border-radius: var(--border-radius) !important;
+}
+
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* ================================================================
+   BUTTONS (general)
+   ================================================================ */
+
+button {
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--border-radius) !important;
+  transition: background-color var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition) !important;
+}
+
+button:active {
+  transform: translateY(0) scale(0.97) !important;
+}
+
+/* ================================================================
+   FORM INPUTS
+   ================================================================ */
+
+:root {
+  --color-header:       #213da0;   /* Header at navigation bar */
+  --color-accent:       #F59E0B;   /* Primary accent (amber) */
+  --color-accent-hover: #D97706;   /* Accent hover */
+  --color-page-bg:      #f4f7f4;   /* Background ng buong page */
+  --color-card-bg:      #ffffff;   /* Background ng mga card/box */
+  --color-heading:      #0f2748;   /* Heading color updated to deep navy */
+  --color-body-text:    #25304a;   /* Slightly cool dark for body text */
+  --color-link:         #213da0;   /* Links use header blue */
+  --color-link-hover:   #425ad6;   /* Hover state ng links (lighter) */
+  --color-tag-bg:       #eaf0ff;   /* Soft blue tag background */
+  --color-tag-text:     #213da0;   /* Tag text uses header blue */
+  --color-footer:       #0f2748;   /* Darker footer to anchor page */
+  --color-footer-text:  #c9d9ee;   /* Footer text (muted light) */
+  --color-border:       #e5edff;   /* Subtle cool border matching header */
+  --showcase-overlay:   rgba(0, 0, 0, 0.35); /* Hero banner overlay */
+}
+/* ================================================================
+   SHOWCASE HERO OVERLAY
+   ================================================================ */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--showcase-overlay) !important;
+}
+
+/* Showcase text stays white regardless of heading color variable */
+.showcase h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+
+footer,
+.bg-indigo-900 {
+  background-color: var(--color-footer) !important;
+  color: var(--color-footer-text) !important;
+  border-top: 3px solid var(--color-accent);
+}
+
+footer p {
+  color: var(--color-footer-text) !important;
+}
+
+footer a {
+  color: var(--color-accent) !important;
+}
+
+/* ================================================================
+   FADE-IN ANIMATION ON CARDS
+   ================================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.grid .bg-white {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.grid .bg-white:nth-child(1) { animation-delay: 0.05s; }
+.grid .bg-white:nth-child(2) { animation-delay: 0.10s; }
+.grid .bg-white:nth-child(3) { animation-delay: 0.15s; }
+.grid .bg-white:nth-child(4) { animation-delay: 0.20s; }
+.grid .bg-white:nth-child(5) { animation-delay: 0.25s; }
+.grid .bg-white:nth-child(6) { animation-delay: 0.30s; }
+
+/* Progressive animation utilities for data-animate */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(12px) scale(0.995);
+  transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
+}
+
+.is-visible { opacity: 1; transform: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade { animation: fadeIn 0.6s ease both; }
+
+@keyframes heroEntrance {
+  from { opacity: 0; transform: translateY(22px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-hero { animation: heroEntrance 0.9s cubic-bezier(0.2,0.9,0.2,1) both; }
+
+@keyframes pop {
+  0% { transform: scale(0.98); }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.animate-pop { animation: pop 0.6s ease both; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-down { animation: slideDown 0.5s cubic-bezier(0.2,0.8,0.2,1) both; }
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-page-bg); }
+::-webkit-scrollbar-thumb {
+  background: #a5d6a7;
+  border-radius: 9999px;
+  border: 2px solid var(--color-page-bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ================================================================
+   SELECTION
+   ================================================================ */
+
+::selection {
+  background-color: rgba(67, 160, 71, 0.25);
+  color: var(--color-heading);
+}
+
+/* Small layout tweaks requested by user */
+/* Make header/nav items more spacious */
+.site-header {
+  padding: 0.5rem 0;
+}
+.site-header .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.site-header .container > .flex {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.site-header .nav-actions a,
+.site-header .nav-actions button {
+  padding: 0.5rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ensure cards have comfortable internal spacing as a fallback */
+.bg-white.p-6, .bg-white.p-8 {
+  padding: 1.5rem !important;
+}
+.bg-white .p-6, .bg-white .p-8 {
+  padding: 1.25rem !important;
+}
+
+@media (max-width: 640px) {
+  .site-header .nav-actions a,
+  .site-header .nav-actions button { padding: 0.45rem 0.6rem; }
+}
+
+/* ================================================================
+   NAVBAR / FOOTER / CARDS — Custom tweaks
+   ================================================================ */
+
+/* Make header prominent and stick to top */
+.site-header {
+  background-color: var(--color-header) !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18) !important;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+.site-header .brand { color: #ffffff; text-decoration: none; }
+.site-header .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.site-header a { color: #ffffff !important; }
+.site-header a:hover { color: #c8e6c9 !important; }
+
+/* Ensure footer sits at the bottom when page content is short */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body > footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Make top-level sections grow to fill available space so footer stays at bottom */
+body > section {
+  flex: 1 0 auto;
+}
+
+/* If templates use a main wrapper, make it fill available space */
+.site-main {
+  flex: 1 0 auto;
+}
+/* Ensure main uses column layout so child sections can expand vertically */
+.site-main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Let the direct section inside site-main fill remaining space */
+.site-main > section {
+  flex: 1 0 auto;
+}
+
+/* Increase padding inside cards to improve spacing */
+/* Targets common Tailwind padding utility inside card containers */
+.bg-white .p-4 {
+  padding: 1.25rem !important; /* 20px */
+}
+
+/* If a card does not include an internal p-4, ensure it still has comfortable padding */
+.bg-white > :not(.p-4) {
+  padding: 1rem;
+}
+
+/* Small responsive tweak: ensure header compact on small screens */
+@media (max-width: 640px) {
+  .site-header .brand { font-size: 1.125rem; }
+  .site-header .nav-actions a, .site-header .nav-actions button { font-size: 0.95rem; }
+}
+
+/* ================================================================
+   STATUS BADGES
+   ================================================================ */
+
+.bg-green-100 { background-color: #dcfce7 !important; }
+.text-green-800 { color: #166534 !important; font-weight: 600; }
+
+/* ================================================================
+   SECTION TITLE BORDER (Recent Jobs / All Jobs heading)
+   ================================================================ */
+
+.border.border-gray-300 {
+  border-color: var(--color-border) !important;
+  border-radius: var(--border-radius) !important;
+  background-color: var(--color-card-bg);
+  box-shadow: var(--card-shadow);
+}
